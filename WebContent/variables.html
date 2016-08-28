@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Variables</title>
+<script type="text/javascript">
+	function validateEmail(email) {
+		var atIndex = email.indexOf("@");
+		var dotIndex = email.lastIndexOf(".");
+		return atIndex < 1 || dotIndex < atIndex + 2 || dotIndex + 2 >= email.length;
+	}
+
+	function validate() {
+		var email = document.getElementById("email").value;
+		if (email == null || email == '' || email == undefined || validateEmail(email)) {
+			alert("Please enter valid email address");
+		} else {
+			alert("Reset Link Sent to " + email);
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="resetpassword" onsubmit="return validate()">
+		<label>email: </label> <input type="text" id="email" /> 
+		<input type="submit" value="Reset Password" />
+	</form>
+</body>
+</html>
