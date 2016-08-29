@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Objects</title>
+</head>
+<body>
+	Select city to get information about it.
+	<br />
+	<br />
+	<select id="city" onchange="cityChanged(this)">
+		<option value="1" selected="selected">San Jose</option>
+		<option value="2">San Fransisco</option>
+		<option value="3">Sacremento</option>
+	</select>
+	<br />
+	<br />
+	<label id="info"><b>Information :</b></label><br/>
+	<label id="population">Population :</label><label id="population_value"></label><br/>
+	<label id="density">Population Density :</label><label id="density_value"></label><br/>
+	<label id="area">Area :</label><label id="area_value"></label><br/>
+	<label id="elevation">Elevation :</label><label id="elevation_value"></label><br/>
+	<script type="text/javascript">
+		var san_jose = {
+			population : "1,026,908", density : "5,700/sq mi", area : "176.526 sq mi", elevation : "82 ft (25 m)"
+		};
+		var san_fransisco = {
+			population : "864,816", density : "18,451/sq mi ", area : "46.87 sq mi", elevation : "	52 ft (16 m)"
+		};
+		var sacremento = {
+			population : "485,199", density : "4,700/sq mi", area : "97.915 sq mi", elevation : "30 ft (9 m)"
+		};
+		var population = document.getElementById("population_value");
+		var density = document.getElementById("density_value");
+		var area = document.getElementById("area_value");
+		var elevation = document.getElementById("elevation_value");
+		function cityChanged(city) {
+			if (city.value == "1") {
+				population.innerHTML = san_jose.population;
+				density.innerHTML = san_jose.density;
+				area.innerHTML = san_jose.area;
+				elevation.innerHTML = san_jose.elevation;
+			} else if (city.value == "2") {
+				population.innerHTML = san_fransisco.population;
+				density.innerHTML = san_fransisco.density;
+				area.innerHTML = san_fransisco.area;
+				elevation.innerHTML = san_fransisco.elevation;
+			} else if (city.value == "3") {
+				population.innerHTML = sacremento.population;
+				density.innerHTML = sacremento.density;
+				area.innerHTML = sacremento.area;
+				elevation.innerHTML = sacremento.elevation;
+			}
+		};
+		population.innerHTML = san_jose.population;
+		density.innerHTML = san_jose.density;
+		area.innerHTML = san_jose.area;
+		elevation.innerHTML = san_jose.elevation;
+	</script>
+</body>
+</html>
