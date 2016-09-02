@@ -3,11 +3,39 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Arrays</title>
-<script type="text/javascript">
-	
-</script>
 </head>
 <body>
-	
+	<div>
+		<label>Add book into issued books list</label>
+		<br/>
+		<label>Book : </label>
+		<input type="text" id="book"/>
+		<input type="button" onclick="addBook()" value="Add Book" />
+		<label id="response"></label>
+	</div>
+	<br />
+	<hr>
+	<div>
+		<label>Get list of issued books</label>
+		<input type="button" onclick="getBooks()" value="See Books" />
+	</div>
+	<br/>
+	<label><b>Books:</b></label>
+	<label id="result"></label>
+	<script>
+		var books = [];
+		function addBook() {
+			var book = document.getElementById("book").value;
+			books.push(book);
+			document.getElementById("response").innerHTML = "Book " + book + " added.";
+		};
+		function getBooks() {
+			var result="";
+			for (var i = 0; i < books.length; i++) {
+			    result = result + "<br/>" + books[i];
+			}
+		    document.getElementById("result").innerHTML = result;
+		};
+	</script>
 </body>
 </html>
