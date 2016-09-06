@@ -25,9 +25,10 @@
 	<script>
 		var books = [];
 		function addBook() {
-			var book = document.getElementById("book").value;
-			books.push(book);
-			document.getElementById("response").innerHTML = "Book " + book + " added.";
+			var book = document.getElementById("book");
+			books.push(book.value);
+			document.getElementById("response").innerHTML = "Book " + book.value + " added.";
+			book.value = "";
 		};
 		function getBooks() {
 			var result="";
