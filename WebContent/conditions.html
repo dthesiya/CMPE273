@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Conditions</title>
+</head>
+<body>
+	<div>
+		<label>Enter percentage to see grade : </label>
+		<input type="number" id="percentage"/>
+		<input type="button" onclick="calculateGrade()" value="See Grade" />
+	</div>
+	<br />
+	<label id="response"></label>
+	<script>
+		function calculateGrade() {
+			var percentage = document.getElementById("percentage").value;
+			if(isValid(percentage)){
+				var grade;
+				if(percentage > 100){
+					grade = "A+";
+				}else if(percentage >= 93 && percentage <= 100){
+					grade = "A";
+				}else if(percentage >= 90 && percentage < 93){
+					grade = "A-";
+				}else if(percentage >= 87 && percentage < 90){
+					grade = "B+";
+				}else if(percentage >= 83 && percentage < 87){
+					grade = "B";
+				}else if(percentage >= 80 && percentage < 83){
+					grade = "B-";
+				}else if(percentage >= 77 && percentage < 80){
+					grade = "C+";
+				}else if(percentage >= 73 && percentage < 77){
+					grade = "C";
+				}else if(percentage >= 70 && percentage < 73){
+					grade = "C-";
+				}else if(percentage >= 67 && percentage < 70){
+					grade = "D+";
+				}else if(percentage >= 60 && percentage < 70){
+					grade = "D";
+				}else if(percentage >= 0 && percentage < 60){
+					grade = "F";
+				}
+				document.getElementById("response").innerHTML = "You have got " + grade + " grade.";
+			}else{
+				alert("Please enter valid percentage");
+				document.getElementById("percentage").value = "";
+			}
+		};
+		function isValid(percentage) {
+			if(percentage == "" || !Number(percentage) || percentage < 0){
+				return false;
+			}else{
+				return true;
+			}
+		};
+	</script>
+</body>
+</html>
