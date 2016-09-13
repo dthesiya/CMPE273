@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Inheritance</title>
+</head>
+<body>
+	<label><b>Inheritance</b></label>
+	<br/>
+	<button type="button" onclick="showPlanetDetails()">Show Planet Details</button>
+	<br/><br/>
+	<div>
+		<label><b>Planet : </b></label><br/>
+		<label id="planet_name"></label><br/>
+		<label id="planet_spin"></label><br/>
+	</div>
+	<br/>
+	<div>
+		<label><b>Earth : </b>(Inheriting some of the values from Planet.)</label><br/>
+		<label id="earth_name"></label><br/>
+		<label id="earth_spin"></label><br/>
+		<label id="earth_life"></label><br/>
+		<label id="earth_satellite"></label>
+	</div>
+	<script>
+		function Planet() {
+		    this.name = "Planet XYZ";
+		    this.spins = true;
+		}
+		function Earth() {
+		    this.life = "Earth if only planet known which can harbor life. (Not inherited)";
+		    this.satellite = "Earth has one natural satellite. (Not inherited)";
+		}
+		Earth.prototype = new Planet();
+		function showPlanetDetails() {
+			var planet = new Planet();
+			var earth = new Earth();
+			earth.name = "Earth";
+			document.getElementById("planet_name").innerHTML = planet.name;
+			document.getElementById("planet_spin").innerHTML = planet.spin ? "This planet spins on its axis." : "This planet does not spin on its axis.";
+			
+			document.getElementById("earth_name").innerHTML = earth.name + " (Inherited)";
+			document.getElementById("earth_spin").innerHTML = earth.spin ? "This planet spins on its axis. (Inherited)" : "This planet does not spin on its axis. (Inherited)";
+			document.getElementById("earth_life").innerHTML = earth.life;
+			document.getElementById("earth_satellite").innerHTML = earth.satellite;
+		};
+	</script>
+</body>
+</html>

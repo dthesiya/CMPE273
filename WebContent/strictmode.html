@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Strict Mode</title>
+</head>
+<body>
+	<div>
+		<input type="text" id="text1"/>
+		<input type="button" onclick="normalMode()" value="Evaluate in Normal Mode" />
+		<br/>
+		<label id="value1"></label>
+	</div>
+	<hr/>
+	<div>
+		<input type="text" id="text2"/>
+		<input type="button" onclick="strictMode()" value="Evaluate in Strict Mode" />
+		<br/>
+		<label id="value2"></label>
+	</div>
+	<br/>
+	<script>
+		function normalMode() {
+			var text1 = document.getElementById("text1").value;
+			eval("var x = " + text1);
+			document.getElementById("value1").innerHTML = x;
+		};
+		function strictMode() {
+			"use strict";
+			var text2 = document.getElementById("text2").value;
+			eval("var x = "+text2);
+			document.getElementById("value2").innerHTML = x;
+		};
+	</script>
+</body>
+</html>
