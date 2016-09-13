@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Regular Expressions</title>
+</head>
+<body>
+	<div>
+		<p id="paragraph">Lorem ipsum dolor sit amet, viverra eleifend libero eu enim tortor aptent, venenatis tempus varius dolor, tellus pede at google.com, rhoncus sem est. Sed viverra ut lorem mauris id, montes tellus purus urna ante quis ipsum, sed quis commodo vivamus vulputate, congue orci donec vehicula bibendum nibh dignissim, hac ut nullam nullam aenean libero lacinia. Curabitur mattis, tellus www.xyz.co.us, sagittis sociosqu etiam consectetuer etiam, eros suspendisse sit sociis fringilla. Praesent diam libero ornare tristique praesent, nascetur nisl varius justo dolor donec aenean, et ac tincidunt purus, ut mauris nunc per vel fusce, erat feugiat taciti id ornare urna vestibulum. Sit condimentum suspendisse ante ligula at, et ultricies lacinia torquent sed a, non metus donec rutrum. Nisl aliquet urna proin metus in, ultricies vestibulum, quam sem et nulla, morbi www.abcd.org nec pede donec. Do aliquet rhoncus facilisis penatibus, pede mauris quis sed sit aenean. A vestibulum blandit amet hendrerit odio. Ut sit ac suscipit urna bibendum ultrices, vitae eget rerum fames est pellentesque rutrum. Pede sociis nulla curabitur molestie feugiat. Nulla justo, quam at, aliquam aenean erat.</p>
+		<br/>
+		<input type="button" onclick="applyRegex()" value="Apply Regex" />
+	</div>
+	<br/>
+	<script>
+		function applyRegex() {
+			var paragraph = document.getElementById("paragraph").innerHTML;
+			var pattern = new RegExp("^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)$");
+			var match = pattern.exec(paragraph);
+			while (match != null) {
+				console.log(match.index + ' ' + pattern.lastIndex);
+				match = pattern.exec(paragraph);
+			}
+		};
+	</script>
+</body>
+</html>
