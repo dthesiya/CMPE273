@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Errors</title>
+</head>
+<body>
+	<div>
+		<label>Insert income : </label>
+		<input type="text" id="text1"/>
+		<input type="button" onclick="addElement()" value="Add Daily Income" />
+		<label id="value1"></label>
+	</div>
+	<hr/>
+	<div>
+		<label>Get income of day : </label>
+		<input type="text" id="text2"/>
+		<input type="button" onclick="fetchElement()" value="Get Income" />
+		<label id="value2"></label>
+	</div>
+	<br/>
+	<script>
+		var elements = [];
+		function addElement() {
+			var text1 = document.getElementById("text1").value;
+			try{
+				if(isNaN(text1)) throw "Income can only be in numbers";
+				text1 = Number(text1);
+				if(text1 < 0) throw "Income cannot be negative";
+				elements.push(text1);
+				document.getElementById("value1").innerHTML = "Income added successfully";
+			}catch(err){
+				document.getElementById("value1").innerHTML = err;
+			}
+		};
+		function fetchElement() {
+			var text2 = document.getElementById("text2").value;
+			try{
+				if(isNaN(text2)) throw "Day can only be in numbers";
+				text2 = Number(text2);
+				if(text2 < 1) throw "Day cannot be less than 1";
+				var income = elements[text2 - 1];
+				document.getElementById("value2").innerHTML = "Income of day " + text2 + " is : " + income;
+			}catch(err){
+				document.getElementById("value2").innerHTML = err;	
+			}
+		};
+	</script>
+</body>
+</html>
