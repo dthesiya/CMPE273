@@ -20,14 +20,14 @@ public class Queue implements QueueInterface {
 	}
 
 	public void enQueue(Object obj) throws QueueFullException {
-		if (back == size) {
+		if (isFull()) {
 			throw new QueueFullException();
 		}
 		queue[back++] = obj;
 	}
 
 	public Object deQueue() throws QueueEmptyException {
-		if (back == 0) {
+		if (isEmpty()) {
 			throw new QueueEmptyException();
 		}
 		Object result = queue[0];
