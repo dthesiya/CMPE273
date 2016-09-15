@@ -79,3 +79,33 @@ class Queen implements ChessInterface {
 		return true;
 	}
 }
+
+public class Interface {
+	public static void main(String[] args) {
+		ChessInterface knight = new Knight();
+		ChessInterface rook = new Rook();
+		ChessInterface bishop = new Bishop();
+		ChessInterface queen = new Queen();
+
+		System.out.println("-------Knight--------");
+		System.out.println(knight.move());
+		System.out.println("can move diagonally ? : " + knight.moveDiagonally());
+		System.out.println("can move horizontally ? : " + knight.moveHorizontally());
+		System.out.println("can move vertically ? : " + knight.moveVertically());
+		System.out.println("-------Rook--------");
+		System.out.println(rook.move());
+		System.out.println("can move diagonally ? : " + rook.moveDiagonally());
+		System.out.println("can move horizontally ? : " + rook.moveHorizontally());
+		System.out.println("can move vertically ? : " + rook.moveVertically());
+		System.out.println("-------Bishop--------");
+		System.out.println(bishop.move());
+		System.out.println("can move diagonally ? : " + bishop.moveDiagonally());
+		System.out.println("can move horizontally ? : " + bishop.moveHorizontally());
+		System.out.println("can move vertically ? : " + bishop.moveVertically());
+		System.out.println("-------Queen--------");
+		System.out.println(queen.move());
+		System.out.println("can move diagonally ? : " + queen.moveDiagonally());
+		System.out.println("can move horizontally ? : " + queen.moveHorizontally());
+		System.out.println("can move vertically ? : " + queen.moveVertically());
+	}
+}
