@@ -32,11 +32,11 @@ public class Array {
 	public static void main(String[] args) {
 		Array array = new Array(5);
 		// try {
-		array.insert(0,"1");
-		array.insert(1,"2");
-		array.insert(2,"3");
-		array.insert(3,"4");
-		array.insert(4,"5");
+		array.insert(0,"Darshit");
+		array.insert(1,"Vikas");
+		array.insert(2,"Divya");
+		array.insert(3,"Arpit");
+		array.insert(4,"Apurva");
 		System.out.println(array.remove(0));
 		System.out.println(array.remove(0));
 		System.out.println(array.remove(1));
