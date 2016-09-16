@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Local Storage</title>
+</head>
+<body>
+	<div>
+		<label>Add book into issued books list</label>
+		<br/>
+		<label>Book : </label>
+		<input type="text" id="book"/>
+		<input type="button" onclick="addBook()" value="Add Book" />
+		<label id="response"></label>
+	</div>
+	<br />
+	<hr>
+	<div>
+		<label>Get list of issued books</label>
+		<input type="button" onclick="getBooks()" value="See Books" />
+	</div>
+	<br/>
+	<label><b>Books:</b></label>
+	<label id="result"></label>
+	<script>
+		function addBook() {
+			var books = (localStorage.books) ? JSON.parse(localStorage.books) : [];
+			var book = document.getElementById("book");
+			books.push(book.value);
+			document.getElementById("response").innerHTML = "Book " + book.value + " added.";
+			book.value = "";
+			localStorage.books = JSON.stringify(books);
+		};
+		function getBooks() {
+			var result="";
+			var books = (localStorage.books) ? JSON.parse(localStorage.books) : [];
+			for (var i = 0; i < books.length; i++) {
+			    result = result + "<br/>" + books[i];
+			}
+		    document.getElementById("result").innerHTML = result;
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Geolocation</title>
+</head>
+<body>
+	<p>Find your current location</p>
+	<button onclick="getLocation()">Click Here!</button>
+	<p id="location"></p>
+	<script>
+		function getLocation() {
+			var location = document.getElementById("location");
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(
+				function(){
+					location.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude + "<br> Altitude:" + position.coords.altitude ;
+				},
+				function(error){
+					location.innerHTML = error ;
+				},
+				{'enableHighAccuracy':true,'timeout':1000,'maximumAge':0});			
+			} else {
+				location.innerHTML = "Your Browser doesn't support Geolocation";
+			}
+		}
+	</script>
+</body>
+</html>

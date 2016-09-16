@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Type Conversions</title>
+</head>
+<body>
+	<div>
+		<label>Show today : </label>
+		<input type="button" onclick="showToday()" value="Show Today" />
+		<label id="text1"></label>
+	</div>
+	<hr/>
+	<div>
+		<label>Show tomorrow : </label>
+		<input type="button" onclick="showTomorrow()" value="Show Tomorrow From Today" />
+		<label id="text2"></label>
+	</div>
+	<br/>
+	<script>
+		function showToday() {
+			var text1 = document.getElementById("text1");
+			text1.innerHTML = new Date();
+		};
+		function showTomorrow() {
+			var text1 = document.getElementById("text1").innerHTML;
+			try{
+				if(text1 == null || text1 == "") throw("Please select today prior to get tomorrow");
+				var dt = new Date(text1);
+				dt.setDate(dt.getDate() + 1);
+				document.getElementById("text2").innerHTML = dt;
+			}catch(err){
+				document.getElementById("text2").innerHTML = err;	
+			}
+		};
+	</script>
+</body>
+</html>

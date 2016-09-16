@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Input Type</title>
+</head>
+<body>
+	<form>
+		First name:<br> <input type="text" name="firstname" required autofocus><br> 
+		Last name:<br> <input type="text" name="lastname"><br>
+		Email:<br> <input type="email" name="email" required><br>
+		Age:<br> <input type="number" name="age" min="18"><br>
+		<br>
+		<input type="submit" value="Submit" onclick="submitForm()">
+		<input type="reset">
+	</form>
+	<br/>
+	<label id="result"></label>
+	<script>
+		function submitForm() {
+			document.getElementById("result").innerHTML = "Submitted Successfully";
+		};
+	</script>
+</body>
+</html>
