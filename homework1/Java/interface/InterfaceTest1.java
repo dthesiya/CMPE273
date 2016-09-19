@@ -5,7 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class InterfaceTest {
+public class InterfaceTest1 {
 	Interface interf;
 
 	@Before

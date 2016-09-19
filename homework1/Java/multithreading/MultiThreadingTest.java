@@ -22,9 +22,9 @@ public class MultiThreadingTest {
 	@Test
 	public void testExecute() {
 		List<Student> students = new ArrayList<>();
-		students.add(new Student("Darshit"));
-		students.add(new Student("Vikas"));
-		students.add(new Student("Ayush"));
+		students.add(new Student("Darshit","dthesiya"));
+		students.add(new Student("Vikas","vikasmiyani"));
+		students.add(new Student("Ronak","ronakdborad"));
 		for (Student student : students) {
 			multiThreading.execute(student);
 		}

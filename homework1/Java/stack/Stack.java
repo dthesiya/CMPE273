@@ -14,7 +14,7 @@ interface StackInterface {
 
 public class Stack implements StackInterface {
 	Object[] stack;
-	int size = 0, back = 0;
+	int size = 0, back = -1;
 
 	public Stack(int size) {
 		this.size = size;
@@ -25,33 +25,33 @@ public class Stack implements StackInterface {
 		if (isEmpty()) {
 			throw new StackEmptyException();
 		}
-		return stack[back - 1];
+		return stack[back];
 	}
 
 	public Object pop() throws StackEmptyException {
 		if (isEmpty()) {
 			throw new StackEmptyException();
 		}
-		return stack[--back];
+		return stack[back--];
 	}
 
 	public void push(Object obj) throws StackFullException {
 		if (isFull()) {
 			throw new StackFullException();
 		}
-		stack[back++] = obj;
+		stack[++back] = obj;
 	}
 
 	public boolean isEmpty() {
-		return back == 0;
+		return back < 0;
 	}
 
 	public boolean isFull() {
-		return back == size;
+		return back == size - 1;
 	}
 
 	public int getSize() {
-		return size;
+		return back + 1;
 	}
 
 	public static void main(String[] args) {
