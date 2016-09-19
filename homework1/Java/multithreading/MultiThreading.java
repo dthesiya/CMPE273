@@ -6,19 +6,22 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
 
 class Student implements Runnable {
 	String name;
+	String githubId;
 	String result = "";
 
-	public Student(String name) {
+	public Student(String name, String githubId) {
 		this.name = name;
+		this.githubId = githubId;
 	}
 
 	public void run() {
 		try {
 			result = "";
-			URL url = new URL("https://api.github.com/users/dthesiya/repos");
+			URL url = new URL("https://api.github.com/users/"+githubId+"/repos");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -38,35 +41,34 @@ class Student implements Runnable {
 			e.printStackTrace();
 		}
 	}
+	
+	public String getResult(){
+		return result;
+	}
 
 	public String toString() {
 		return "name : " + name;
 	}
 }
 
-public class MultiThreading {
+public class MultiThreading implements Executor {
+	public void execute(Runnable runnable) {
+		// TODO Auto-generated method stub
+		runnable.run();
+	}
+
 	public static void main(String[] args) throws InterruptedException {
+		Executor executor = new MultiThreading();
 		List<Student> students = new ArrayList<>();
-		students.add(new Student("Darshit"));
-		students.add(new Student("Vikas"));
-		students.add(new Student("Ayush"));
-		List<Thread> threads=new ArrayList<>();
-		long startTime = System.nanoTime();
+		students.add(new Student("Darshit","dthesiya"));
+		students.add(new Student("Vikas","vikasmiyani"));
+		students.add(new Student("Ronak","ronakdborad"));
 		for (Student student : students) {
-			Thread thread=new Thread(student);
-			thread.start();
-			threads.add(thread);
+			executor.execute(student);
 		}
-		for(Thread thread:threads){
-			thread.join();
-		}
-		long endTime = System.nanoTime();
-		System.out.println("Threading time :" + ((endTime - startTime) / 1000));
-		startTime = System.nanoTime();
+		
 		for (Student student : students) {
-			student.run();
+			System.out.println(student.result);
 		}
-		endTime = System.nanoTime();
-		System.out.println("Linear time :" + ((endTime - startTime) / 1000));
 	}
 }

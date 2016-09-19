@@ -47,7 +47,7 @@ public class Queue implements QueueInterface {
 	}
 
 	public int getSize() {
-		return size;
+		return back;
 	}
 
 	public static void main(String[] args) {
