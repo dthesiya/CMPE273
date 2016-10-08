@@ -7,10 +7,10 @@ item.controller('itemController', function($scope, $http) {
 		$http({
 			method : "POST",
 			url : '/itemDetails?item_id=' + item_id,
-			data : {
-
-			}
+			data : {}
 		}).success(function(data, status) {
+			$scope.details = data;
+			document.title = data.name + " | MarketPlace";
 		}).error(function(error) {
 		});
 	};
