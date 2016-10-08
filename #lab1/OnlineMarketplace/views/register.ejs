@@ -1,0 +1,79 @@
+
+<form name="form" class="form-horizontal" ng-submit="register()"
+	role="form">
+	<div class="form-group"
+		ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+		<div class="col-sm-4">
+			<input type="email" name="username" id="username"
+				class="form-control" ng-model="username" placeholder="Email" required />
+			<span ng-show="form.username.$dirty && form.username.$error.required"
+				class="help-block">Email is required</span>
+		</div>
+	</div>
+	<div class="form-group"
+		ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+		<div class="col-sm-4">
+			<input type="email" name="username" id="username"
+				class="form-control" placeholder="Reenter email" required /> <span
+				ng-show="form.username.$dirty && form.username.$error.required"
+				class="help-block">Reentering Email is required</span>
+		</div>
+	</div>
+	<div class="form-group"
+		ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+		<div class="col-sm-4">
+			<input type="password" name="password" id="password"
+				class="form-control" ng-model="password" placeholder="Password"
+				required /> <span
+				ng-show="form.password.$dirty && form.password.$error.required"
+				class="help-block">Password is required</span>
+		</div>
+	</div>
+	<div class="form-group"
+		ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+		<div class="col-sm-4">
+			<input type="text" name="firstName" id="firstName"
+				class="form-control" ng-model="fname" placeholder="First name"
+				required /> <span
+				ng-show="form.firstName.$dirty && form.firstName.$error.required"
+				class="help-block">First name is required</span>
+		</div>
+	</div>
+	<div class="form-group"
+		ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+		<div class="col-sm-4">
+			<input type="text" name="lastName" id="lastName" class="form-control"
+				ng-model="lname" placeholder="Last name" required /> <span
+				ng-show="form.lastName.$dirty && form.lastName.$error.required"
+				class="help-block">Last name is required</span>
+		</div>
+	</div>
+	<div class="form-group"
+		ng-class="{ 'has-error': form.date.$dirty && form.date.$error.required }">
+		<div class="col-sm-4">
+			<input type="text" onfocus="(this.type='date')" name="date" class="form-control" ng-model="bdate"  placeholder="Birth date" required>
+		</div>
+	</div>
+	<div class="form-group"
+		ng-class="{ 'has-error': form.phone.$dirty && form.phone.$error.required }">
+		<div class="col-sm-4">
+			<input type="text" name="phone" id="phone" class="form-control"
+				ng-model="phone" placeholder="Mobile phone" required /> <span
+				ng-show="form.phone.$dirty && form.phone.$error.required"
+				class="help-block">Mobile phone is required</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-4">
+			<button type="submit" class="btn btn-info btn-block">Register</button>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4">{{result}}</label>
+	</div>
+</form>
+<style>
+$('.datepicker ').datepicker ({
+	startDate: '-3d'
+});
+</style>

@@ -1,0 +1,31 @@
+
+<form name="form" class="form-horizontal" ng-submit="signin()"
+	role="form">
+	<div class="form-group"
+		ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+		<div class="col-sm-4">
+			<input type="email" name="username" id="username"
+				class="form-control" ng-model="username" placeholder="Email" required />
+			<span ng-show="form.username.$dirty && form.username.$error.required"
+				class="help-block">Email is required</span>
+		</div>
+	</div>
+	<div class="form-group"
+		ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+		<div class="col-sm-4">
+			<input type="password" name="password" id="password"
+				class="form-control" ng-model="password" placeholder="Password"
+				required /> <span
+				ng-show="form.password.$dirty && form.password.$error.required"
+				class="help-block">Password is required</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-4">
+			<button type="submit" class="btn btn-info btn-block">Sign in</button>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4">{{result}}</label>
+	</div>
+</form>
