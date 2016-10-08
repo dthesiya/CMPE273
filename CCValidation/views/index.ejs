@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %></title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<!-- Loading the AngularJS file from /public/angularJS folder -->
+<script src="angularjs/validation.js"></script>
+</head>
+<body ng-app="validation" ng-controller="validation">
+	<div class="row">
+		<h1 class="col-md-12"><%= title %></h1>
+		<div class="col-md-6">
+			<div class="row" id="creditCard">
+				<div class="col-md-12" style="margin: 10px;">
+					Card Number :<br> <input type="text" id="CCNumber"
+						ng-model="CCNumber" />
+				</div>
+				<div class="col-md-12" style="margin: 10px;">
+					Valid through :<br> <select id="month" ng-model="month">
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select> <select id="year" ng-model="year">
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+						<option value="2021">2021</option>
+						<option value="2022">2022</option>
+						<option value="2023">2023</option>
+						<option value="2024">2024</option>
+						<option value="2025">2025</option>
+					</select>
+				</div>
+				<div class="col-md-12" style="margin: 10px;">
+					CVV :<br> <input type="text" ng-model="cvv" />
+				</div>
+				<div class="col-md-12" style="margin: 10px;">
+					<input class="btn btn-success" type="submit" value="Validate"
+						ng-click="validate()"> {{result}}
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
